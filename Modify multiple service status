@@ -1,0 +1,5 @@
+#!bin/bash
+
+
+s="service1 service2 service3"
+for a in start enable status; do systemctl $a $s; done
