@@ -1,0 +1,11 @@
+Get user info from /etc/passwd and chown their home directory
+Let's face it, sometimes when you give Jr. Admins too much access they tend to make rookie mistakes. Like chowning the /home directory recursively to the root user... In this example we will grab the username and home directory of each "real user" in the /etc/passwd and changing the ownership of the home directory to a more realistic owner.
+
+$ IFS=$'\n'
+$ for USERINFO in `grep "/bin/bash" /etc/passwd | grep ":/home"`
+ > do
+ > USERNAME=$(echo $USERINFO | cut -d: -f1)
+ > HOMEDIR=$(echo $USERINFO | cut -d: -f6)
+ > chown -R $USERNAME $HOMEDIR
+ > done
+ 
