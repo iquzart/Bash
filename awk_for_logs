@@ -1,0 +1,23 @@
+1. Find the number of total unique visitors:
+
+cat access.log | awk '{print $1}' | sort | uniq -c | wc -l
+
+2. Find the number of unique visitors today:
+
+cat access.log | grep `date '+%e/%b/%G'` | awk '{print $1}' | sort | uniq -c | wc -l
+
+3. Find the number of unique visitors this month:
+
+cat access.log | grep `date '+%b/%G'` | awk '{print $1}' | sort | uniq -c | wc -l
+
+4. Find the number of unique visitors on arbitrary date – for example March 22nd of 2007:
+
+cat access.log | grep 22/Mar/2016 | awk '{print $1}' | sort | uniq -c | wc -l
+
+5. (based on #3) Find the number of unique visitors for the month of March:
+
+cat access.log | grep Mar/2016 | awk '{print $1}' | sort | uniq -c | wc -l
+
+6. Show the sorted statistics of “number of visits/requests” “visitor’s IP address”:
+
+cat access.log | awk '{print "requests from " $1}' | sort | uniq -c | sort
