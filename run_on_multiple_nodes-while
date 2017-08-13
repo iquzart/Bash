@@ -1,0 +1,1 @@
+while read HOST ; do ping -c 1 $HOST ; done < servers.txt
