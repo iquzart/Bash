@@ -1,0 +1,1 @@
+display w/o # && $ - awk '!/^ *#/ && NF' filename
