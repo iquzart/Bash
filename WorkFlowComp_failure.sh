@@ -8,5 +8,5 @@
 sqlr=$(sqlplus -S Username/Password< /tmp/query_1.sql  | awk '!/^$/')
 if [[ "$sqlr" != "no rows selected" ]];
 then
-  echo -e  "SQL Query Result:\n\n\n  $sqlr" | mail -s "Critical: PROD Alert! Workflow Mailer Failed"  samad.abdul@meraas.ae Rafiuddin.Younus@meraas.ae
+  echo -e  "SQL Query Result:\n\n\n  $sqlr" | mail -s "Critical: PROD Alert! Workflow Mailer Failed"  mailbox
 fi
